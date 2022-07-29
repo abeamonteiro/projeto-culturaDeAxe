@@ -1,5 +1,3 @@
-//criar o usuario, ver os usuarios, deletar por id e rota de login
-
 const usuarioModel = require("../Models/usuarioModel")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")

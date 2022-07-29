@@ -1,7 +1,7 @@
 const TerreiroModel = require("../Models/terreiroModel")
 const AtividadesModel = require("../Models/atividadesModel")
 
-const creatTerreiro = async (req, res) => {
+const createTerreiro = async (req, res) => {
     try {
         const { name, anoDeAbertura, pessoaResponsavel, tradicao } = req.body
 
@@ -36,6 +36,7 @@ const getTerreiroById = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+
 const getTypeActivity = async (req, res) => {
     try {
         const typeActivity = req.query.categoria;
@@ -75,11 +76,12 @@ const getTerreiroByResp = async (req, res) => {
 const updateTerreiro = async (req, res) => {
     try {
         const { name, anoDeAbertura, pessoaResponsavel, tradicao } = req.body
-        const updateTerreiro = await TerreiroModel.findByIdAndUpDate(req.params.id, {
+        await TerreiroModel.findByIdAndUpdate(req.params.id, {
             name, anoDeAbertura, pessoaResponsavel, tradicao
         })
+        const updatedTerreiro = await TerreiroModel.findById(req.params.id)
 
-        res.status(200).json(updateTerreiro)
+        res.status(200).json(updatedTerreiro)
     } catch (error) {
         console.error(error)
         res.status(500).json({ message: error.message })
@@ -100,7 +102,7 @@ const deleteTerreiro = async (req, res) => {
 
 
 module.exports = {
-    creatTerreiro,
+    createTerreiro,
     getAllTerreiros,
     getTerreiroById,
     getTypeActivity,

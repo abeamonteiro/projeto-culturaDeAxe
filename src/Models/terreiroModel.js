@@ -1,26 +1,26 @@
 const mongoose = require("mongoose")
 
-const terreiroSchema = new mongoose.Schema({
+const terreiroSchema = mongoose.Schema({
     _id: {
         type: mongoose.Schema.Types.ObjectId,
         default: mongoose.Types.ObjectId
     },
     name:{
+        type: String,
         required: true,
-        unique: true,
-        type: String
+        unique: true
     },
     anoDeAbertura:{
         type: Number
     },
     pessoaResponsavel: {
+        type: String,
         required: true,
-        type: String
     },
     tradicao:{
-        required: true,
-        type: String
-    }
+        type: String,
+        required: true
+    },
 }, 
 
 {timestamps: true});

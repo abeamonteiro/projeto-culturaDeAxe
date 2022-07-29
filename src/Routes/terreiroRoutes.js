@@ -4,12 +4,12 @@ const usuarioController = require("../Controller/usuarioController")
 
 const router = express.Router();
 
-router.post("/novoTerreiro", terreiroController.creatTerreiro);
-router.get("/terreiros/listaTerreiros", terreiroController.getAllTerreiros);
+router.post("/novoTerreiro", terreiroController.createTerreiro);
+router.get("/listaTerreiros", terreiroController.getAllTerreiros);
 router.get("/terreiros/:id", terreiroController.getTerreiroById);
 router.get("/tipoAtividade", terreiroController.getTypeActivity);
 router.get("/responsavel", terreiroController.getTerreiroByResp);
-router.put("/terreiro/:id", terreiroController.updateTerreiro);
+router.patch("/:id", terreiroController.updateTerreiro);
 router.delete("/terreiro/:id", terreiroController.deleteTerreiro);
 
 router.post("/user", usuarioController.criarUsuario);

@@ -1,37 +1,37 @@
 const mongoose = require("mongoose");
 
-const atividadesSchema = new mongoose.Schema ({
+const atividadesSchema = mongoose.Schema ({
     _id: {
         type: mongoose.Schema.Types.ObjectId,
         default: mongoose.Types.ObjectId
     },
     categoria:{
-        required: true,
         type: [String],
+        required: true,
     },
     nome: {
+        type: String,
         required: true,
         unique: true,
-        type: String
     },    
-    gratuito: {
-        required: true,
+    gratuidade: {
         type: Boolean,
+        required: true,
     },
     responsavel:{
-        required: true,
         type: [String],
+        required: true,
     },
     frequencia:{
-        required: true,
         type: String,
+        required: true,
     },
     publicoAlvo:{
-        required: true,
         type: String,
+        required: true,
     },
 
-    terreiro: {
+    terreiroId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'terreiro'
